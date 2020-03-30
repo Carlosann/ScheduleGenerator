@@ -1,4 +1,8 @@
 # ScheduleGenerator
+Centennial College
+COMP 231 Section 001
+Group 4
+
 The current version of the schedule generator counts with a predfined users which will be used to test the app, in total there are 20 
 users divided in: 
 1 administrator
