@@ -1,0 +1,37 @@
+﻿@model Room
+@{
+    ViewBag.Title = "Create Room";
+    ViewBag.Style = "/css/Login.css";
+    Layout = "_HomeLayout";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<div class="login-page">
+    <div class="form">
+        <form asp-action="AddRoom" method="post">
+            <input type="hidden" asp-for="RoomID" />
+            <label>
+                Building
+                <input asp-for="RoomBuilding" placeholder="Building" />
+            </label>
+            <label>
+                Room number
+                <input asp-for="RoomNumber" placeholder="Number" />
+            </label>
+            <label>
+                Capacity
+                <input asp-for="Capacity" placeholder="Capacity" />
+            </label>
+            <label>
+                Start hour
+                <input asp-for="StartHour" placeholder="Start hour" />
+            </label>
+            <label>
+                End hour
+                <input asp-for="EndHour" placeholder="End Hour" />
+            </label>
+            <button type="submit" class="btn-primary">Save</button>
+        </form>
+    </div>
+</div>

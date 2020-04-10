@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "_CoordinatorLayout";
+}
+
+<div class='middlenav'>
+    <a asp-controller="Coordinator" asp-action="InstructorList" class="button">
+        <p class='buttonText'>List Of Instructors</p>
+    </a>
+    <a asp-controller="Coordinator" asp-action="CourseList" class="button">
+        <p class='buttonText'>List Of Courses</p>
+    </a>
+    <a asp-action="AccountDetails" class="button"><p class='buttonText'>Account Details</p></a>
+</div>

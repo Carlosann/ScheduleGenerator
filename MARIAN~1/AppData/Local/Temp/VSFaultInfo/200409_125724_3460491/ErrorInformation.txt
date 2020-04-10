@@ -1,0 +1,27 @@
+Error Information
+AppInsightsEvent Name = vs/ide/vbcs/nonfatalwatson
+          Description = RequestServiceAsync Failed
+     TelemetrySession = 'f1cef204-60be-4748-8740-b7e86d6bb0e7' Started = False OptIn=True IsInitialized = False Cloned = False
+      WatsonEventType = VisualStudioNonFatalErrors2
+             UTC time = 2020-04-09T16:57:24
+
+ Exception:
+ StreamJsonRpc.RemoteInvocationException
+ Cannot find service module info file 'roslynSnapshot$VS (9284) (cd18ece7-a958-4149-b7c8-b2ceb7d8706e).servicehub.service.json' in 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\Services' (ErrorKind: ServiceModuleInfoNotFound)
+ StreamJsonRpc.JsonRpc.<InvokeCoreAsync>d__96`1.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Microsoft.ServiceHub.Framework.RemoteServiceBroker.<GetPipeAsync>d__30.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Microsoft.ServiceHub.Client.HubClient.<GetPipeAsync>d__33.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Microsoft.ServiceHub.Client.HubClient.<RequestServiceAsync>d__30.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Microsoft.VisualStudio.LanguageServices.Remote.ServiceHubRemoteHostClient.Connections.<RetryRemoteCallAsync>d__0`2.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Microsoft.VisualStudio.LanguageServices.Remote.ServiceHubRemoteHostClient.Connections.<RequestServiceAsync>d__1.MoveNext()
+WerReportAddDump PID=9284 devenv WerDumpTypeMiniDump

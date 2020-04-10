@@ -1,0 +1,30 @@
+﻿@model Course
+@{
+    ViewBag.Title = "Log in";
+    ViewBag.Style = "/css/Login.css";
+    Layout = "_HomeLayout";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<div class="login-page">
+    <div class="form">
+        <form asp-action="UpdateCourse" method="post">
+            <input type="hidden" asp-for="CourseID" />
+            <input type="hidden" asp-for="CourseName" />
+            <input type="hidden" asp-for="CourseCode" />
+            <input type="hidden" asp-for="DepartmentID" />
+            <label>
+                Lecture Hours
+                <input asp-for="LectureHours" value="@Model.LectureHours" />
+            </label>
+
+            <label>
+                Lab Hours
+                <input asp-for="LabHours" value="@Model.LabHours">
+            </label>
+
+            <button type="submit" class="btn-primary">Save</button>
+        </form>
+    </div>
+</div>

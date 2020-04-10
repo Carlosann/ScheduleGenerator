@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="Home Page">
+    <meta name="author" content="SitePoint">
+    <link rel="stylesheet" asp-href-include="/css/styles.css">
+    <link rel="stylesheet" asp-href-include="/css/w3.css">
+    <link rel="stylesheet" asp-href-include=@ViewBag.Style />
+</head>
+<body>
+
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a asp-action="Index" class="w3-bar-item w3-button">Home</a>
+        <a asp-controller="Coordinator" asp-action="InstructorList" class="w3-bar-item w3-button">List Of Instructors</a>
+        <a asp-action="CourseList" class="w3-bar-item w3-button">List Of Courses</a>
+        <a asp-action="AccountDetails" class="w3-bar-item w3-button">Account Details</a>
+        <a asp-action="Logout" class="w3-bar-item w3-button">Log out</a>
+    </div>
+
+    <button class="w3-button w3-xlarge" onclick="w3_open()" id="navButton">☰</button>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+</body>
+</html>

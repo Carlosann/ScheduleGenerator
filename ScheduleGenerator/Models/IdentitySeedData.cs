@@ -41,6 +41,9 @@ namespace ScheduleGenerator.Models
         {
             using(IServiceScope scope = app.ApplicationServices.CreateScope())
             {
+                AppIdentityDbContext context = app.ApplicationServices.GetRequiredService<AppIdentityDbContext>();
+                context.Database.EnsureCreated();
+
                 UserManager<AppUser> userManager = scope.ServiceProvider
                     .GetRequiredService<UserManager<AppUser>>();
 

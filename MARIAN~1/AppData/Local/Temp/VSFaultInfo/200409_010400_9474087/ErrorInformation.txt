@@ -1,0 +1,47 @@
+Error Information
+AppInsightsEvent Name = vs/intellicode/intellisense/csharp/recommend-fault
+          Description = Error getting completion items
+     TelemetrySession = 'f1cef204-60be-4748-8740-b7e86d6bb0e7' Started = True OptIn=True IsInitialized = True Cloned = False
+      WatsonEventType = VisualStudioNonFatalErrors2
+             UTC time = 2020-04-09T17:04:00
+
+ Aggregate # 0
+ StreamJsonRpc.RemoteInvocationException
+ Cannot find service module info file 'vs-intellicode-models.servicehub.service.json' in 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\Services' (ErrorKind: ServiceModuleInfoNotFound)
+ StreamJsonRpc.JsonRpc.<InvokeCoreAsync>d__96`1.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Microsoft.ServiceHub.Framework.RemoteServiceBroker.<GetPipeAsync>d__30.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Microsoft.ServiceHub.Client.HubClient.<GetPipeAsync>d__33.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Microsoft.ServiceHub.Client.HubClient.<RequestServiceAsync>d__30.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Microsoft.VisualStudio.IntelliCode.Api.RemoteModelServiceClientFactory.<BuildAsync>d__2.MoveNext()
+ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ Pythia.PythiaService.<>c.<<-ctor>b__24_0>d.MoveNext()
+
+     Inner Exception:
+     StreamJsonRpc.RemoteInvocationException
+     Cannot find service module info file 'vs-intellicode-models.servicehub.service.json' in 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\Services' (ErrorKind: ServiceModuleInfoNotFound)
+     StreamJsonRpc.JsonRpc.<InvokeCoreAsync>d__96`1.MoveNext()
+     System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+     System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+     Microsoft.ServiceHub.Framework.RemoteServiceBroker.<GetPipeAsync>d__30.MoveNext()
+     System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+     System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+     Microsoft.ServiceHub.Client.HubClient.<GetPipeAsync>d__33.MoveNext()
+     System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+     System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+     Microsoft.ServiceHub.Client.HubClient.<RequestServiceAsync>d__30.MoveNext()
+     System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+     System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+     Microsoft.VisualStudio.IntelliCode.Api.RemoteModelServiceClientFactory.<BuildAsync>d__2.MoveNext()
+     System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+     System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+     Pythia.PythiaService.<>c.<<-ctor>b__24_0>d.MoveNext()
+WerReportAddDump PID=9284 devenv WerDumpTypeMiniDump

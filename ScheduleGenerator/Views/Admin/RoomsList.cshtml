@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Room>
+@{
+    ViewBag.Title = "Instructors List";
+    ViewBag.Style = "/css/tableStyles.css";
+    Layout = "_AdminLayout";
+}
+
+
+<h2>List of Instructors</h2>
+<div class="container">
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Name:</th>
+                    <th>Capacity: </th>
+                    <th>Start Hour: </th>
+                    <th>End Hour: </th>
+                    <th>Schedule: </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <td>@r.RoomBuilding @r.RoomNumber</td>
+                        <td>@r.Capacity</td>
+                        <td>@r.StartHour</td>
+                        <td>@r.EndHour</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a asp-action="CreateRoom">Create Room</a>
+</div>

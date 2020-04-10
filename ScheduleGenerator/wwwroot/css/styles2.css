@@ -1,0 +1,63 @@
+min-device-width condition is matched:
+
+@media (min-device-width:600px) {
+    img[data-src-600px] {
+        content: attr(data-src-600px, url);
+    }
+}
+@media (min-device-width:800px) {
+    img[data-src-800px] {
+        content: attr(data-src-800px, url);
+    }
+}
+
+body	
+{ 
+  background-image: url(AccountDetailsBg.jpg);
+  
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+    
+}
+
+#navButton{
+    padding-bottom: 50px;
+  }
+
+  .maincontent {
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 60pt;
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    margin-top: 100px;
+    height:300px;
+  }
+
+  .button {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }

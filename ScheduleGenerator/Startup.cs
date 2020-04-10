@@ -23,6 +23,10 @@ namespace ScheduleGenerator
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration["Data:Scheduler:ConnectionString"]));
+
             services.AddDbContext<AppIdentityDbContext>(options => 
                 options.UseSqlServer(
                     Configuration["Data:SchedulerIdentity:ConnectionString"]));
@@ -32,6 +36,11 @@ namespace ScheduleGenerator
                 .AddDefaultTokenProviders();
 
             services.AddMvc();
+
+            services.AddTransient<IDepartmentRepository, EFDepartmentRepository>();
+            services.AddTransient<IDesiredCourseRepository, EFDesiredCoursesRepository>();
+            services.AddTransient<ICourseRepository, EFCourseRepository>();
+            services.AddTransient<IRoomRepository, EFRoomRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +63,7 @@ namespace ScheduleGenerator
 
             });
 
+            SeedData.EnsurePopulated(app);
             IdentitySeedData.EnsurePopulated(app);
         }
     }

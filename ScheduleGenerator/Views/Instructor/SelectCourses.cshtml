@@ -1,0 +1,25 @@
+﻿@model CourseSelection
+@{
+    ViewBag.Title = "Instructors List";
+    ViewBag.Style = "/css/styles2.css";
+    Layout = "_InstructorLayout";
+}
+
+<div class='maincontent'>
+    <h1>Select Courses: </h1>
+    <form asp-action="UpdateDesiredCourses" asp-controller="Instructor" method="post">
+
+
+        @for (var i = 0; i < Model.DesiredCourses.Count(); i++)
+        {
+        <label>
+            <input type="hidden" asp-for="@Model.DesiredCourses[i].InstructorID" />
+            <input type="hidden" asp-for="@Model.DesiredCourses[i].CourseID" />
+            <input asp-for="@Model.DesiredCourses[i].IsDesired" />
+            @Model.Courses.FirstOrDefault(c => c.CourseID == Model.DesiredCourses[i].CourseID).CourseName
+        </label>
+        }
+        <br>
+        <input type="submit" class="button" value="Save">
+    </form>
+</div>

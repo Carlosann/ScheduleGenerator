@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Course>
+@{
+    ViewBag.Title = "Instructors List";
+    ViewBag.Style = "/css/tableStyles.css";
+    Layout = "_CoordinatorLayout";
+}
+
+
+<h2>List of Courses</h2>
+<div class="container">
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Course Name:</th>
+                    <th>Course Code: </th>
+                    <th>Lecture Hours: </th>
+                    <th>Lab Hours: </th>
+                    <th>Schedule: </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model)
+                {
+                    <tr>
+                        <td>@c.CourseName</td>
+                        <td>@ViewBag.Dep @c.CourseCode</td>
+                        <td>@c.LectureHours</td>
+                        <td>@c.LabHours</td>
+                        <td><a asp-action="EditCourse" asp-route-courseId="@c.CourseID">View</a></td>
+                        <td>View</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

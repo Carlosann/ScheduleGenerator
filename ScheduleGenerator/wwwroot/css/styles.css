@@ -1,0 +1,67 @@
+﻿min-device-width condition is matched:
+
+@media (min-device-width:600px) {
+    img [data-src-600px]
+
+{
+    content: attr(data-src-600px, url);
+}
+
+}
+
+@media (min-device-width:800px) {
+    img[data-src-800px] {
+        content: attr(data-src-800px, url);
+    }
+}
+
+body {
+    background: url(../Images/background2.jpg) top right no-repeat;
+    background-attachment: fixed;
+}
+
+#navButton {
+    padding-bottom: 10px;
+}
+
+.middlenav {
+    background-color: #8c9592;
+    opacity: 90%;
+    border-radius: 0pt;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    height: 200px;
+    padding-top: 10px;
+    width: 50%;
+    padding-top: 50px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: initial;
+    border-style: solid;
+    border-radius: 78px;
+    border-color: #cec2c1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+.buttonText {
+    padding-left: 10pt;
+    padding-right: 10pt;
+}
+
+p {
+    color: #cec2c1;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

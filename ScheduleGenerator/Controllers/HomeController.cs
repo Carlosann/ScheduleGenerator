@@ -42,15 +42,15 @@ namespace ScheduleGenerator.Controllers
                     {
                         if ((await userManager.IsInRoleAsync(user, "ADMIN")))
                         {
-                            return Redirect(loginModel?.ReturnUrl ?? "/Home/Index");
+                            return Redirect(loginModel?.ReturnUrl ?? "/Admin/Index");
                         }
                         else if ((await userManager.IsInRoleAsync(user, "COORDINATOR")))
                         {
-                            return Redirect(loginModel?.ReturnUrl ?? "/Home/Index2");
+                            return Redirect(loginModel?.ReturnUrl ?? "/Coordinator/Index");
                         }
                         else if ((await userManager.IsInRoleAsync(user, "INSTRUCTOR")))
                         {
-                            return Redirect(loginModel?.ReturnUrl ?? "/Home/Index3");
+                            return Redirect(loginModel?.ReturnUrl ?? "/Instructor/Index");
                         }
                     }
                 }

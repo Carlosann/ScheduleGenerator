@@ -1,0 +1,15 @@
+﻿@model AppUser
+@{
+    ViewBag.Title = "Instructors List";
+    ViewBag.Style = "/css/styles2.css";
+    Layout = "_InstructorLayout";
+}
+
+<div class='maincontent'>
+    <h1>Account Details</h1>
+    <p>Name: @Model.FirstName @Model.LastName</p>
+    <p>E-mail: @Model.UserName</p>
+    <p>Department: @ViewBag.Dep</p>
+    <a asp-action="SelectCourses"><button class='button'>Select Courses</button></a>
+</div>
+

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AppUser>
+@{
+    ViewBag.Title = "Instructors List";
+    ViewBag.Style = "/css/tableStyles.css";
+    Layout = "_CoordinatorLayout";
+}
+
+
+<h2>List of Instructors</h2>
+<div class="container">
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Name:</th>
+                    <th>Phone Number: </th>
+                    <th>Email: </th>
+                    <th>Desired Courses: </th>
+                    <th>Schedule: </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.FirstName @i.LastName</td>
+                        <td>@i.PhoneNumber</td>
+                        <td>@i.UserName</td>
+                        <td><a asp-action="ValidateCourses" asp-route-instructorId="@i.Id">View</a></td>
+                        <td>View</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,4918 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Set Availability</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            color: green;
+            text-align: center;
+        }
+
+        html {
+            font-family: sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(200,200,200);
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td, th {
+            border: 1px solid rgb(231, 230, 230);
+            padding: 1px 40px;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        caption {
+            padding: 10px;
+        }
+
+        #myBtn {
+            background-color: white;
+            border: none;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .button {
+            background-color: grey;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 10px;
+            margin: 1px 1px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+    </style>
+    <link rel="stylesheet" asp-href-include="/css/w3.css">
+</head>
+<body>
+
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a asp-action="Index" class="w3-bar-item w3-button">Home</a>
+        <a asp-action="SetAvailability" class="w3-bar-item w3-button">Set Availability</a>
+        <a href="#" class="w3-bar-item w3-button">View Schedule</a>
+        <a asp-action="AccountDetails" class="w3-bar-item w3-button">Account Details</a>
+        <a asp-action="Logout" class="w3-bar-item w3-button">Log out</a>
+    </div>
+
+    <button class="w3-button w3-xlarge" onclick="w3_open()" id="navButton">☰</button>
+
+    <h1>Set Availability</h1>
+
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <th>Mon</th>
+            <th>Tues</th>
+            <th>Wed</th>
+            <th>Thurs</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+        </tr>
+        <tr>
+            <th>8:30am</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn"></button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>9:00am</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>9:30am</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>10:00am</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>10:30am</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>11:00am</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn"> Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>11:30am</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>12:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>12:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>1:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>1:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>2:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>2:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>3:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">&nbsp;&nbsp;</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>3:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>4:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>4:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>5:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>5:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>6:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>6:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>7:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>7:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>8:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>8:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>9:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>9:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>10:00pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>10:30pm</th>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <button id="myBtn">Set Availability</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+
+
+                        <form>
+                            <input type="radio" id="isAvailable" name="availability" value="isAvailable">
+                            <label for="isAvailable">Available</label><br>
+                            <input type="radio" id="isNotAvailable" name="availability" value="isNotAvailable">
+                            <label for="isNotAvailable">Not Available</label><br>
+                            <button class='button' onclick="addAvailability()">Save</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+</body>
+</html>
